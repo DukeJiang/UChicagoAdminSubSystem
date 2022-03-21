@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+  Courses Page
+{% endblock %}
+
+{% block content %}
+      <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Name</th>
+                <th scope="col">Course ID</th>
+                <th scope="col">Instructor ID</th>
+                <th scope="col">Description</th>
+                <th scope="col">Course Location</th>
+                <th scope="col">Registration Status</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.course_ID }}</td>
+                    <td>{{ course.instructor_ID }}$</td>
+                    <td>{{ course.description }}$</td>
+                    <td>{{ course.course_location }}$</td>
+                    <td>{{ course.registration_status }}$</td>
+                    <td>
+                        <button class="btn btn-outline btn-info"
+                                onclick="window.location.href=
+                                        '{{ url_for( 'student_roster_page' , course_id=course.id ) }}';">
+                            Student Roster
+                        </button>
+                        <button class="btn btn-outline btn-success" onclick="window.location.href=
+                                '{{ url_for( 'close_registration' , course_id=course.id ) }}';">
+                            Close Registration
+                        </button>
+                        <button class="btn btn-outline btn-danger" onclick="window.location.href=
+                                '{{ url_for( 'delete_course' , course_id=course.id ) }}';">
+                            Delete Course
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

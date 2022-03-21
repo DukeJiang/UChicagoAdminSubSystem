@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+    Change Student Page
+{% endblock %}
+
+{% block content %}
+    <body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            <img style="max-width:400px;width:100%"
+                 src="https://cdn.freelogovectors.net/wp-content/uploads/2018/04/universityofchicago_logo.png" alt="">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Change Student Info
+            </h1>
+            <br>
+            {{ form.name.label() }}
+            {{ form.name(class="form-control", placeholder="Student Name") }}
+
+            {{ form.gender.label() }}
+            {{ form.gender(class="form-control", placeholder="Gender") }}
+
+            {{ form.age.label() }}
+            {{ form.age(class="form-control", placeholder="Age") }}
+
+            {{ form.major.label() }}
+            {{ form.major(class="form-control", placeholder="Major") }}
+
+            {{ form.email.label() }}
+            {{ form.email(class="form-control", placeholder="Email") }}
+
+            {{ form.studentID.label() }}
+            {{ form.studentID(class="form-control", placeholder="Student ID") }}
+
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+    </body>
+{% endblock %}

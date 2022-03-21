@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+    <body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            <img style="max-width:400px;width:100%"
+                 src="https://cdn.freelogovectors.net/wp-content/uploads/2018/04/universityofchicago_logo.png" alt="">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Add A Course
+            </h1>
+            <br>
+            {{ form.name.label() }}
+            {{ form.name(class="form-control", placeholder="Course Name") }}
+
+            {{ form.course_ID.label() }}
+            {{ form.course_ID(class="form-control", placeholder="Course ID ") }}
+
+            {{ form.instructor_ID.label() }}
+            {{ form.instructor_ID(class="form-control", placeholder="Instructor ID") }}
+
+            {{ form.course_location.label() }}
+            {{ form.course_location(class="form-control", placeholder="Course Location") }}
+
+            {{ form.description.label() }}
+            {{ form.description(class="form-control", placeholder="Description") }}
+
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+    </body>
+{% endblock %}

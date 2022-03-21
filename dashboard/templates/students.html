@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+    Students Page
+{% endblock %}
+
+{% block content %}
+    <table class="table table-hover table-dark">
+        <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Name</th>
+            <th scope="col">Major</th>
+            <th scope="col">Email</th>
+            <th scope="col">StudentID</th>
+            <th scope="col">Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Your rows inside the table HERE: -->
+        {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.major }}</td>
+                <td>{{ student.email }}$</td>
+                <td>{{ student.studentID }}$</td>
+                <td>
+                    <button class="btn btn-outline btn-info" onclick="window.location.href=
+                            '{{ url_for( 'change_student_info' , student_id=student.id ) }}';">
+                        Make Changes
+                    </button>
+                    <button class="btn btn-outline btn-danger" onclick="window.location.href=
+                            '{{ url_for( 'delete_student' , student_id=student.id ) }}';">
+                        Remove Student
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
